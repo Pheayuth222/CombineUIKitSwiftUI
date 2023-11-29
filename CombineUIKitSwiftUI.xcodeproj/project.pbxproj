@@ -15,6 +15,10 @@
 		52B89C502B14EA79005E1817 /* CombineUIKitSwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52B89C4E2B14EA79005E1817 /* CombineUIKitSwiftUI.xcdatamodeld */; };
 		52B89C522B14EA7B005E1817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B89C512B14EA7B005E1817 /* Assets.xcassets */; };
 		52B89C552B14EA7B005E1817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B89C532B14EA7B005E1817 /* LaunchScreen.storyboard */; };
+		82AC293B2B16DE0D0021723D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC293A2B16DE0D0021723D /* CustomTableViewCell.swift */; };
+		82AC293F2B16F2310021723D /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC293E2B16F2310021723D /* LoginScreen.swift */; };
+		82AC29412B1712B40021723D /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC29402B1712B40021723D /* TabBarView.swift */; };
+		82AC29442B1712CC0021723D /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC29432B1712CC0021723D /* TabModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		52B89C512B14EA7B005E1817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B89C542B14EA7B005E1817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52B89C562B14EA7B005E1817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AC293A2B16DE0D0021723D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		82AC293E2B16F2310021723D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		82AC29402B1712B40021723D /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		82AC29432B1712CC0021723D /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,8 @@
 		5282C1DC2B159985001A881E /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				82AC29452B1718990021723D /* Views */,
+				82AC29422B1712BB0021723D /* Models */,
 				5282C1DD2B1599A7001A881E /* SwiftUINav.swift */,
 			);
 			path = SwiftUI;
@@ -68,6 +78,7 @@
 		52B89C442B14EA79005E1817 /* CombineUIKitSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				82AC29392B16DD850021723D /* TableViewCells */,
 				5282C1DC2B159985001A881E /* SwiftUI */,
 				52B89C452B14EA79005E1817 /* AppDelegate.swift */,
 				52B89C472B14EA79005E1817 /* SceneDelegate.swift */,
@@ -79,6 +90,31 @@
 				52B89C4E2B14EA79005E1817 /* CombineUIKitSwiftUI.xcdatamodeld */,
 			);
 			path = CombineUIKitSwiftUI;
+			sourceTree = "<group>";
+		};
+		82AC29392B16DD850021723D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				82AC293A2B16DE0D0021723D /* CustomTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		82AC29422B1712BB0021723D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82AC29432B1712CC0021723D /* TabModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82AC29452B1718990021723D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82AC29402B1712B40021723D /* TabBarView.swift */,
+				82AC293E2B16F2310021723D /* LoginScreen.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82AC29442B1712CC0021723D /* TabModel.swift in Sources */,
+				82AC293B2B16DE0D0021723D /* CustomTableViewCell.swift in Sources */,
 				52B89C502B14EA79005E1817 /* CombineUIKitSwiftUI.xcdatamodeld in Sources */,
+				82AC29412B1712B40021723D /* TabBarView.swift in Sources */,
 				52B89C4A2B14EA79005E1817 /* ViewController.swift in Sources */,
 				52B89C462B14EA79005E1817 /* AppDelegate.swift in Sources */,
+				82AC293F2B16F2310021723D /* LoginScreen.swift in Sources */,
 				5282C1DE2B1599A7001A881E /* SwiftUINav.swift in Sources */,
 				52B89C482B14EA79005E1817 /* SceneDelegate.swift in Sources */,
 			);
