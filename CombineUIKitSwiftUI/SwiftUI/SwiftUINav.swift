@@ -44,7 +44,13 @@ struct SwiftUINav: View {
         }
 }
 
-#Preview {
-    SwiftUINav()
+//#Preview {
+//    SwiftUINav()
+//}
+
+struct SwiftUINav_Preview : PreviewProvider {
+    static var previews: some View {
+        SwiftUINav()
+    }
 }
 
