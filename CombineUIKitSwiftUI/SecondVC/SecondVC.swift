@@ -16,6 +16,7 @@ class SecondVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         secondVM.getData()
         tableView.delegate = self
@@ -99,6 +100,7 @@ class SecondVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         fatalError("Crash was triggered")
     }
+    
 }
 
 class ProfileCell: UITableViewCell {
@@ -200,11 +202,6 @@ class DetailCell: UITableViewCell {
         subtitleLabel.text = subtitle
     }
 }
-
-
-
-
-
 
 
 

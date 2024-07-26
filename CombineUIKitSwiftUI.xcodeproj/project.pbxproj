@@ -23,6 +23,9 @@
 		52E0109B2C4FB9BD00BF9A99 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109A2C4FB9BD00BF9A99 /* FirebaseAnalyticsSwift */; };
 		52E0109D2C4FB9BD00BF9A99 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109C2C4FB9BD00BF9A99 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		52E0109F2C4FB9BD00BF9A99 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109E2C4FB9BD00BF9A99 /* FirebaseAppCheck */; };
+		BFD5076F2C534AEB00509310 /* HomeCraftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5076E2C534AEB00509310 /* HomeCraftVC.swift */; };
+		BFD507712C534EB200509310 /* ChairCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD507702C534EB200509310 /* ChairCollectionCell.swift */; };
+		BFD507742C53604E00509310 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD507732C53604E00509310 /* HistoryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		52E010822C4F4C4A00BF9A99 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		52E010852C4F4C9A00BF9A99 /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		52E010872C4F9E7E00BF9A99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFD5076E2C534AEB00509310 /* HomeCraftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCraftVC.swift; sourceTree = "<group>"; };
+		BFD507702C534EB200509310 /* ChairCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChairCollectionCell.swift; sourceTree = "<group>"; };
+		BFD507732C53604E00509310 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,6 @@
 		5282C1DC2B159985001A881E /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				82AC29452B1718990021723D /* Views */,
-				82AC29422B1712BB0021723D /* Models */,
 				5282C1DD2B1599A7001A881E /* SwiftUINav.swift */,
 			);
 			path = SwiftUI;
@@ -86,6 +90,7 @@
 		52B89C442B14EA79005E1817 /* CombineUIKitSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5076D2C534AC600509310 /* Design UIKit */,
 				52E010872C4F9E7E00BF9A99 /* GoogleService-Info.plist */,
 				52E010842C4F4C8C00BF9A99 /* Model */,
 				52E010812C4F4C3300BF9A99 /* SecondVC */,
@@ -116,6 +121,24 @@
 				52E010852C4F4C9A00BF9A99 /* Second.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFD5076D2C534AC600509310 /* Design UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				BFD507722C53602C00509310 /* HisBizplayUI */,
+				BFD5076E2C534AEB00509310 /* HomeCraftVC.swift */,
+				BFD507702C534EB200509310 /* ChairCollectionCell.swift */,
+			);
+			path = "Design UIKit";
+			sourceTree = "<group>";
+		};
+		BFD507722C53602C00509310 /* HisBizplayUI */ = {
+			isa = PBXGroup;
+			children = (
+				BFD507732C53604E00509310 /* HistoryVC.swift */,
+			);
+			path = HisBizplayUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,16 +249,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82AC29442B1712CC0021723D /* TabModel.swift in Sources */,
-				82AC293B2B16DE0D0021723D /* CustomTableViewCell.swift in Sources */,
 				52B89C502B14EA79005E1817 /* CombineUIKitSwiftUI.xcdatamodeld in Sources */,
-				82AC29412B1712B40021723D /* TabBarView.swift in Sources */,
+				BFD507742C53604E00509310 /* HistoryVC.swift in Sources */,
 				52B89C4A2B14EA79005E1817 /* ViewController.swift in Sources */,
 				52E010862C4F4C9A00BF9A99 /* Second.swift in Sources */,
 				52B89C462B14EA79005E1817 /* AppDelegate.swift in Sources */,
-				82AC293F2B16F2310021723D /* LoginScreen.swift in Sources */,
+				BFD507712C534EB200509310 /* ChairCollectionCell.swift in Sources */,
 				5282C1DE2B1599A7001A881E /* SwiftUINav.swift in Sources */,
 				52E010832C4F4C4A00BF9A99 /* SecondVC.swift in Sources */,
+				BFD5076F2C534AEB00509310 /* HomeCraftVC.swift in Sources */,
 				52B89C482B14EA79005E1817 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

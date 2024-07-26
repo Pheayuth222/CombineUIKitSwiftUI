@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     private func setUpTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
+//        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
         view.addSubview(tableView)
         
         tableView.separatorStyle = .none
@@ -81,11 +81,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        cell.userNameLabel.text = "Hello"
-        cell.descLabel.text = "Testing Text"
-        cell.imageUser.image = UIImage(systemName: "person.fill")
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath)
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,11 +90,11 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
             let swiftUIViewController = UIHostingController(rootView: SwiftUINav(navigationController: self.navigationController))
             self.navigationController?.pushViewController(swiftUIViewController, animated: true)
         } else if indexPath.row == 1 {
-            let swiftUIViewController = UIHostingController(rootView: LoginScreen(navigationController: self.navigationController))
-            self.navigationController?.pushViewController(swiftUIViewController, animated: true)
+//            let swiftUIViewController = UIHostingController(rootView: LoginScreen(navigationController: self.navigationController))
+//            self.navigationController?.pushViewController(swiftUIViewController, animated: true)
         } else {
-            let swiftUIViewController = UIHostingController(rootView: TabBarView(navigationController: self.navigationController))
-            self.navigationController?.pushViewController(swiftUIViewController, animated: true)
+//            let swiftUIViewController = UIHostingController(rootView: TabBarView(navigationController: self.navigationController))
+//            self.navigationController?.pushViewController(swiftUIViewController, animated: true)
         }
     }
     
