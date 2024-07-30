@@ -9,10 +9,10 @@ import UIKit
 import SwiftUI
 
 struct TransactionModel {
-    var category       : String?
-    var amount      : String?
-    var transactionCount     : Bool?
-    var iconImage     : String?
+    var category            : String?
+    var amount              : String?
+    var transactionCount    : Int?
+    var iconImage           : String?
 }
 
 class HistoryVC: UIViewController {
@@ -50,11 +50,11 @@ class HistoryVC: UIViewController {
     
     private func loadTransactions() {
         self.transaction = [
-            TransactionModel(category: "하이패스(남인천)",amount: "900 원", transactionCount: true, iconImage: "Chair1"),
-            TransactionModel(category: "하이패스(남인천)",amount: "720 원", transactionCount: false, iconImage: "Chair2"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: true, iconImage: "Chair3"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: true, iconImage: "Chair4"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: true, iconImage: "Chair5"),
+            TransactionModel(category: "하이패스(남인천) 하이패스(남인천) 하이패스(남인천)",amount: "900 원", transactionCount: 2, iconImage: "Chair1"),
+            TransactionModel(category: "하이패스(남인천)",amount: "720 원", transactionCount: 5, iconImage: "Chair2"),
+            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 8, iconImage: "Chair3"),
+            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 2, iconImage: "Chair4"),
+            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 3, iconImage: "Chair5"),
         ]
         self.tableView.reloadData()
     }
@@ -121,6 +121,7 @@ class TransactionCell: UITableViewCell {
         
          
         // category
+        categoryLabel.numberOfLines = 2
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(categoryLabel)
         
@@ -129,6 +130,7 @@ class TransactionCell: UITableViewCell {
         contentView.addSubview(amountLabel)
         
         // Transation
+        transactionLabel.numberOfLines = 2
         transactionLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(transactionLabel)
         
@@ -148,6 +150,7 @@ class TransactionCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             
+            // Background View Cover Image View
             bgView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             bgView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
             bgView.widthAnchor.constraint(equalToConstant: 60),
@@ -159,12 +162,15 @@ class TransactionCell: UITableViewCell {
             iconImageView.widthAnchor.constraint(equalToConstant: 40),
             iconImageView.heightAnchor.constraint(equalToConstant: 40),
             
+            // StackView cover : Two Labels
             stackViewCover.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackViewCover.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
+//            stackViewCover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -20),
             stackViewCover.leadingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: 10),
-            stackViewCover.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: -15),
-            stackViewCover.heightAnchor.constraint(equalToConstant: 50),
+            stackViewCover.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: -5),
+//            stackViewCover.heightAnchor.constraint(equalToConstant: 50),
             
-            
+            // Right Amount Label
             amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             amountLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         
@@ -172,10 +178,11 @@ class TransactionCell: UITableViewCell {
     }
     
     func configureCell(with transaction: TransactionModel) {
+        bgView.backgroundColor = UIColor.init(hexString: "#DDE9F4")
         iconImageView.image = UIImage(named: transaction.iconImage ?? "")
         categoryLabel.text = transaction.category
         amountLabel.text = transaction.amount
-        transactionLabel.text = "\(transaction.transactionCount ?? false) transactions"
+        transactionLabel.text = "\(transaction.transactionCount ?? 0) transactions"
     }
 }
 

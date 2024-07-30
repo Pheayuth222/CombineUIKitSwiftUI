@@ -23,6 +23,7 @@
 		52E0109B2C4FB9BD00BF9A99 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109A2C4FB9BD00BF9A99 /* FirebaseAnalyticsSwift */; };
 		52E0109D2C4FB9BD00BF9A99 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109C2C4FB9BD00BF9A99 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		52E0109F2C4FB9BD00BF9A99 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 52E0109E2C4FB9BD00BF9A99 /* FirebaseAppCheck */; };
+		BFB0D5FE2C57326900089935 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0D5FD2C57326900089935 /* UIColor.swift */; };
 		BFD5076F2C534AEB00509310 /* HomeCraftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5076E2C534AEB00509310 /* HomeCraftVC.swift */; };
 		BFD507712C534EB200509310 /* ChairCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD507702C534EB200509310 /* ChairCollectionCell.swift */; };
 		BFD507742C53604E00509310 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD507732C53604E00509310 /* HistoryVC.swift */; };
@@ -42,6 +43,7 @@
 		52E010822C4F4C4A00BF9A99 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		52E010852C4F4C9A00BF9A99 /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		52E010872C4F9E7E00BF9A99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFB0D5FD2C57326900089935 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BFD5076E2C534AEB00509310 /* HomeCraftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCraftVC.swift; sourceTree = "<group>"; };
 		BFD507702C534EB200509310 /* ChairCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChairCollectionCell.swift; sourceTree = "<group>"; };
 		BFD507732C53604E00509310 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		52B89C442B14EA79005E1817 /* CombineUIKitSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BFB0D5FC2C57325C00089935 /* Extension */,
 				BFD5076D2C534AC600509310 /* Design UIKit */,
 				52E010872C4F9E7E00BF9A99 /* GoogleService-Info.plist */,
 				52E010842C4F4C8C00BF9A99 /* Model */,
@@ -121,6 +124,14 @@
 				52E010852C4F4C9A00BF9A99 /* Second.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFB0D5FC2C57325C00089935 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BFB0D5FD2C57326900089935 /* UIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BFD5076D2C534AC600509310 /* Design UIKit */ = {
@@ -256,6 +267,7 @@
 				52B89C462B14EA79005E1817 /* AppDelegate.swift in Sources */,
 				BFD507712C534EB200509310 /* ChairCollectionCell.swift in Sources */,
 				5282C1DE2B1599A7001A881E /* SwiftUINav.swift in Sources */,
+				BFB0D5FE2C57326900089935 /* UIColor.swift in Sources */,
 				52E010832C4F4C4A00BF9A99 /* SecondVC.swift in Sources */,
 				BFD5076F2C534AEB00509310 /* HomeCraftVC.swift in Sources */,
 				52B89C482B14EA79005E1817 /* SceneDelegate.swift in Sources */,
