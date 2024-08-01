@@ -8,11 +8,18 @@
 import UIKit
 import SwiftUI
 
+enum PaymentMethod : String,CaseIterable {
+    case Payment = "Payment"
+    case Deposit = "Deposit"
+}
+
 struct TransactionModel {
     var category            : String?
     var amount              : String?
     var transactionCount    : Int?
     var iconImage           : String?
+    var colorBgView         : String?
+    var paymentMethod       : PaymentMethod?
 }
 
 class HistoryVC: UIViewController {
@@ -25,7 +32,7 @@ class HistoryVC: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Your Title Here"
+        self.navigationItem.title = "Transactions history"
 
         view.backgroundColor = .red
         self.setUpTableView()
@@ -37,6 +44,7 @@ class HistoryVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.identifier)
+        tableView.register(HeaderTitleSectionCell.self, forCellReuseIdentifier: HeaderTitleSectionCell.identifier)
 //        tableView.separatorStyle = .none
         view.addSubview(tableView)
         
@@ -50,11 +58,11 @@ class HistoryVC: UIViewController {
     
     private func loadTransactions() {
         self.transaction = [
-            TransactionModel(category: "하이패스(남인천) 하이패스(남인천) 하이패스(남인천)",amount: "900 원", transactionCount: 2, iconImage: "Chair1"),
-            TransactionModel(category: "하이패스(남인천)",amount: "720 원", transactionCount: 5, iconImage: "Chair2"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 8, iconImage: "Chair3"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 2, iconImage: "Chair4"),
-            TransactionModel(category: "그린주유소",amount: "69,653 원", transactionCount: 3, iconImage: "Chair5"),
+            TransactionModel(category: "Gym",amount: "$40.99", transactionCount: 2, iconImage: "gymIcon",colorBgView: "#D08900",paymentMethod: .Payment),
+            TransactionModel(category: "Al-Bank",amount: "$460.00", transactionCount: 5, iconImage: "Chair2",colorBgView: "#29B83C",paymentMethod: .Deposit),
+            TransactionModel(category: "McDonald",amount: "$34.10", transactionCount: 8, iconImage: "Chair3",colorBgView: "#DA95CA",paymentMethod: .Payment),
+            TransactionModel(category: "Recipient",amount: "$320.19", transactionCount: 2, iconImage: "Chair4",colorBgView: "#D08900",paymentMethod: .Payment),
+            TransactionModel(category: "그린주유소 하이패스(남인천) 하이패스(남인천) 하이패스(남인천) 하이패스(남인천) 그린주유소",amount: "$69,653", transactionCount: 3, iconImage: "Chair5",colorBgView: "#D08900",paymentMethod: .Deposit),
         ]
         self.tableView.reloadData()
     }
@@ -78,8 +86,67 @@ extension HistoryVC : UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableCell(withIdentifier: HeaderTitleSectionCell.identifier) as? HeaderTitleSectionCell {
+            headerView.leftTileLabel.text = "Transactions history"
+            return headerView
+        } else {
+            return UIView()
+        }
+    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Transactions history"
+//    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 86
+    }
+    
+}
+
+class HeaderTitleSectionCell : UITableViewCell {
+    
+    static let identifier = "HeaderTitleSectionCell"
+    
+    
+    var leftTileLabel : UILabel = {
+        let lable = UILabel()
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        return lable
+    }()
+    
+    let bgView = UIView()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUpUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setUpUI() {
+        bgView.backgroundColor = .white
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(bgView)
+        
+        leftTileLabel.textColor = .purple
+        leftTileLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        
+        bgView.addSubview(leftTileLabel)
+        
+        NSLayoutConstraint.activate([
+            bgView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            bgView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            bgView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            bgView.widthAnchor.constraint(equalToConstant: 56),
+            bgView.heightAnchor.constraint(equalToConstant: 56),
+            
+            leftTileLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor,constant: 20),
+            leftTileLabel.centerYAnchor.constraint(equalTo: bgView.centerYAnchor)
+        ])
     }
     
 }
@@ -143,8 +210,8 @@ class TransactionCell: UITableViewCell {
         stackViewCover.axis = .vertical
         stackViewCover.addArrangedSubview(categoryLabel)
         stackViewCover.addArrangedSubview(transactionLabel)
-        stackViewCover.spacing = 5
-        stackViewCover.distribution = .fillEqually
+//        stackViewCover.spacing = 5
+        stackViewCover.distribution = .fill
         stackViewCover.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackViewCover)
         
@@ -159,16 +226,16 @@ class TransactionCell: UITableViewCell {
 //            iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
             iconImageView.centerYAnchor.constraint(equalTo: bgView.centerYAnchor),
             iconImageView.centerXAnchor.constraint(equalTo: bgView.centerXAnchor),
-            iconImageView.widthAnchor.constraint(equalToConstant: 40),
-            iconImageView.heightAnchor.constraint(equalToConstant: 40),
+            iconImageView.widthAnchor.constraint(equalToConstant: 24),
+            iconImageView.heightAnchor.constraint(equalToConstant: 24),
             
             // StackView cover : Two Labels
-            stackViewCover.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackViewCover.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
-//            stackViewCover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -20),
+//            stackViewCover.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackViewCover.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
+            stackViewCover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -20),
             stackViewCover.leadingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: 10),
-            stackViewCover.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: -5),
-//            stackViewCover.heightAnchor.constraint(equalToConstant: 50),
+            stackViewCover.trailingAnchor.constraint(lessThanOrEqualTo: amountLabel.leadingAnchor, constant: 5),
+//            stackViewCover.heightAnchor.constraint(equalToConstant: 70),
             
             // Right Amount Label
             amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -178,11 +245,12 @@ class TransactionCell: UITableViewCell {
     }
     
     func configureCell(with transaction: TransactionModel) {
-        bgView.backgroundColor = UIColor.init(hexString: "#DDE9F4")
+        bgView.backgroundColor = UIColor.init(hexString: transaction.colorBgView ?? "",opacity: 0.15)
         iconImageView.image = UIImage(named: transaction.iconImage ?? "")
         categoryLabel.text = transaction.category
-        amountLabel.text = transaction.amount
-        transactionLabel.text = "\(transaction.transactionCount ?? 0) transactions"
+        amountLabel.text = transaction.paymentMethod == .Deposit ? "+ \(transaction.amount ?? "")" : "- \(transaction.amount ?? "")"
+        transactionLabel.text = transaction.paymentMethod?.rawValue
+//        transactionLabel.text = "\(transaction.transactionCount ?? 0) transactions"
     }
 }
 

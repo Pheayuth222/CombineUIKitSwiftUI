@@ -52,7 +52,7 @@ class SecondVM {
             ContactInfo(icone: "map.fill", title: "Prizes")
         ]
         
-        let appVersion = [
+        _ = [
             ContactInfo(icone: "creditcard.fill", title: "My Reward"),
         ]
         
